@@ -1,11 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Polls</h1>
+<h1>Posts</h1>
+<ul class ="genres">
+	{% for genre in genres %}
+    <li><a href="{% url 'genre_index' genre.genre %}">{{ genre }}</a></li>
+      {% endfor %}
 {% for post in posts %}
     <div class="post">
         <h2>
             <a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a>
         </h2>
+        <p class="byline">
+      	Posted by {{ post.author }} &mdash; {{ post.published_date }}
+    	</p>
     </div>
 {% endfor %}
 {% endblock %}
