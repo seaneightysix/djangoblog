@@ -1,3 +1,6 @@
 from django.contrib import admin
+from myblog.models import Genre
+from myblog.models import Post
 
-# Register your models here.
+admin.site.register(Genre)
+admin.site.register(Post)
